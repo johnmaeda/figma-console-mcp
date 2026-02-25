@@ -243,7 +243,10 @@ If Design Systems Assistant MCP is not available, install it from: https://githu
 		// Priority 2: Synthesize URL from WebSocket file identity
 		const wsFileInfo = this.wsServer?.getConnectedFileInfo() ?? null;
 		if (wsFileInfo?.fileKey) {
-			return `https://www.figma.com/design/${wsFileInfo.fileKey}/${encodeURIComponent(wsFileInfo.fileName || 'Untitled')}`;
+			const pageIdParam = wsFileInfo.currentPageId
+				? `?node-id=${wsFileInfo.currentPageId.replace(/:/g, '-')}`
+				: '';
+			return `https://www.figma.com/design/${wsFileInfo.fileKey}/${encodeURIComponent(wsFileInfo.fileName || 'Untitled')}${pageIdParam}`;
 		}
 
 		return null;

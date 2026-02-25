@@ -5,6 +5,11 @@ All notable changes to Figma Console MCP will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.2] - 2026-02-25
+
+### Fixed
+- **`figma_take_screenshot` failing without explicit `nodeId` in WebSocket mode** — The synthesized URL from the Desktop Bridge connection lacked a `?node-id=` parameter, causing the tool to throw "No node ID found" when no `nodeId` was passed. The plugin now reports `currentPageId` alongside `currentPage`, and the server includes it in the synthesized URL so `figma_take_screenshot` (and any future URL-dependent tool) resolves the current page automatically.
+
 ## [1.11.1] - 2026-02-24
 
 ### Fixed

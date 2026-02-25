@@ -38,6 +38,7 @@ export interface ConnectedFileInfo {
   fileName: string;
   fileKey: string | null;
   currentPage?: string;
+  currentPageId?: string;
   connectedAt: number;
 }
 
@@ -263,6 +264,7 @@ export class FigmaWebSocketServer extends EventEmitter {
         const found = this.findClientByWs(ws);
         if (found) {
           found.client.fileInfo.currentPage = message.data.pageName;
+          found.client.fileInfo.currentPageId = message.data.pageId || null;
           found.client.lastActivity = Date.now();
           this._activeFileKey = found.fileKey;
         }
@@ -354,6 +356,7 @@ export class FigmaWebSocketServer extends EventEmitter {
         fileName: data.fileName,
         fileKey,
         currentPage: data.currentPage,
+        currentPageId: data.currentPageId || null,
         connectedAt: Date.now(),
       },
       selection: existing?.selection || null,

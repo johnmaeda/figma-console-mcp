@@ -1980,6 +1980,7 @@ figma.ui.onmessage = async (msg) => {
           fileName: figma.root.name,
           fileKey: figma.fileKey || null,
           currentPage: figma.currentPage.name,
+          currentPageId: figma.currentPage.id,
           selectionCount: selection ? selection.length : 0
         }
       });
