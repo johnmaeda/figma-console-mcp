@@ -72,6 +72,35 @@ Figma Console MCP connects AI assistants (like Claude) to Figma, enabling:
 
 #### Step 2: Configure Your MCP Client
 
+**GitHub Copilot (CLI or VS Code):**
+
+Type `/mcp add` in Copilot CLI and fill in:
+- **Server Name:** `figma-console`
+- **Server Type:** `1` (Local/STDIO)
+- **Command:** `npx -y figma-console-mcp@latest`
+- **Environment Variables:** `{"FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN", "ENABLE_MCP_APPS": "true"}`
+- **Tools:** `*`
+
+Then press `Ctrl+S` to save.
+
+Or edit `~/.copilot/mcp-config.json` directly:
+```json
+{
+  "mcpServers": {
+    "figma-console": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "figma-console-mcp@latest"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN",
+        "ENABLE_MCP_APPS": "true"
+      },
+      "tools": ["*"]
+    }
+  }
+}
+```
+
 **Claude Code (CLI):**
 ```bash
 claude mcp add figma-console -s user -e FIGMA_ACCESS_TOKEN=figd_YOUR_TOKEN_HERE -e ENABLE_MCP_APPS=true -- npx -y figma-console-mcp@latest
@@ -102,6 +131,7 @@ If you're not sure where to put the JSON configuration above, here's where each 
 
 | App | macOS | Windows |
 |-----|-------|---------|
+| **GitHub Copilot (CLI)** | `~/.copilot/mcp-config.json` | `%USERPROFILE%\.copilot\mcp-config.json` |
 | **Claude Desktop** | `~/Library/Application Support/Claude/claude_desktop_config.json` | `%APPDATA%\Claude\claude_desktop_config.json` |
 | **Claude Code (CLI)** | `~/.claude.json` | `%USERPROFILE%\.claude.json` |
 | **Cursor** | `~/.cursor/mcp.json` | `%USERPROFILE%\.cursor\mcp.json` |
@@ -110,6 +140,8 @@ If you're not sure where to put the JSON configuration above, here's where each 
 > **Tip for designers:** The `~` symbol means your **home folder**. On macOS, that's `/Users/YourName/`. On Windows, it's `C:\Users\YourName\`. You can open these files in any text editor — even TextEdit or Notepad.
 >
 > **Can't find the file?** If it doesn't exist yet, create it. The app will pick it up on its next restart. Make sure the entire file is valid JSON (watch for missing commas or brackets).
+>
+> **GitHub Copilot users:** You can use `/mcp add` interactively instead of editing the config file manually.
 >
 > **Claude Code users:** You can skip manual editing entirely. Just run the `claude mcp add` command above and it handles everything for you.
 
