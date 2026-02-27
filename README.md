@@ -26,6 +26,19 @@ Figma Console MCP connects AI assistants (like Claude) to Figma, enabling:
 
 ## ⚡ Quick Start
 
+### 🤖 GitHub Copilot Users
+
+> **Quick setup:** Type `/mcp add` in Copilot CLI, then enter:
+> - **Server Name:** `figma-console`
+> - **Server Type:** `1` (Local)
+> - **Command:** `npx -y figma-console-mcp@latest`
+> - **Environment Variables:** `{"FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN", "ENABLE_MCP_APPS": "true"}`
+> - **Tools:** `*`
+>
+> Press `Ctrl+S` to save. Then open the Desktop Bridge plugin in Figma (`Plugins → Development → Figma Desktop Bridge`).
+>
+> [Full Copilot setup details →](#step-2-configure-your-mcp-client)
+
 ### Choose Your Setup
 
 **First, decide what you want to do:**
