@@ -50,7 +50,7 @@ export class FigmaConsoleMCPv3 extends McpAgent {
 		refreshToken?: string;
 		expiresAt: number;
 	}> {
-		const env = this.env as Env;
+		const env = this.env as unknown as Env;
 
 		if (!env.FIGMA_OAUTH_CLIENT_ID || !env.FIGMA_OAUTH_CLIENT_SECRET) {
 			throw new Error("OAuth not configured on server");
@@ -184,7 +184,7 @@ export class FigmaConsoleMCPv3 extends McpAgent {
 		await this.ensureSessionId();
 
 		// @ts-ignore - this.env is available in Agent/Durable Object context
-		const env = this.env as Env;
+		const env = this.env as unknown as Env;
 
 		// Try OAuth first (per-user authentication)
 		try {
@@ -298,7 +298,7 @@ export class FigmaConsoleMCPv3 extends McpAgent {
 
 				// Access env from Durable Object context
 				// @ts-ignore - this.env is available in Agent/Durable Object context
-				const env = this.env as Env;
+				const env = this.env as unknown as Env;
 
 				if (!env) {
 					throw new Error("Environment not available - this.env is undefined");
