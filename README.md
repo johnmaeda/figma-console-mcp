@@ -1,5 +1,7 @@
 # Figma Console MCP Server
 
+> **⚠️ Fork Notice:** This is an unmaintained fork by [@johnmaeda](https://github.com/johnmaeda) with GitHub Copilot setup instructions and security updates. For the actively maintained version, see the [original repository](https://github.com/southleft/figma-console-mcp).
+
 [![MCP](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
 [![npm](https://img.shields.io/npm/v/figma-console-mcp)](https://www.npmjs.com/package/figma-console-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
